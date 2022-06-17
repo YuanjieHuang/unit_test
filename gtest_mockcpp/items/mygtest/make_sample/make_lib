@@ -1,0 +1,25 @@
+#######################
+# Makefile
+#######################
+# source object target
+#SOURCE := main.cpp func.cpp
+#OBJS   := main.o func.o
+TARGET := main
+
+# compile and lib parameter
+CC      := g++
+LIBS    :=
+LDFLAGS := 
+DEFINES :=
+INCLUDE := -I .
+CFLAGS  := 
+CXXFLAGS:= 
+
+LIB := libfunc.so
+
+$(LIB): func.o
+	$(CC) -shared  -o fPIC -o $@ $^
+#all:
+#   $(CC) -o $(TARGET) $(SOURCE)
+func.o: func.cpp
+	$(CC) -c -fPIC $^ -o $@
